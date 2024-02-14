@@ -1,0 +1,10 @@
+'''
+Create a class called Student, having name and email as its data members and _init_(self, name, email) and putdata(self) as 
+bound methods. The _init_ function should assign the values passed as parameters to the requisite variables. The putdata 
+function should display the data of the student. Create another class called PhDguide having name, email, and students as 
+its data members. Here, the students variable is the list of students under the guide. The PhDguide class should have four 
+bound methods: _init_, putdata, add, and remove. The _init_ method should initialize the variables, the putdata should 
+show the data of the guide, include the list of students, the add method should add a student to the list of students of the 
+guide and the remove function should remove the student (if the student exists in the list of students of that guide) from 
+the list of students.
+'''
