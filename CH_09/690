@@ -8,3 +8,46 @@ show the data of the guide, include the list of students, the add method should 
 guide and the remove function should remove the student (if the student exists in the list of students of that guide) from 
 the list of students.
 '''
+class Student:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+    
+    def putdata(self):
+        print("Name:", self.name)
+        print("Email:", self.email)
+
+class PhDguide:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+        self.students = []
+
+    def putdata(self):
+        print("Guide Name:", self.name)
+        print("Guide Email:", self.email)
+        print("Students:")
+        for student in self.students:
+            student.putdata()
+            print("\n")
+
+    def add(self, student):
+        self.students.append(student)
+        print(student.name, "has been added to", self.name, "'s students.")
+
+    def remove(self, student):
+        if student in self.students:
+            self.students.remove(student)
+            print(student.name, "has been removed from", self.name, "'s students.")
+        else:
+            print(student.name, "is not in", self.name, "'s students.")
+
+
+student1 = Student("John Doe", "john@example.com")
+student2 = Student("Jane Smith", "jane@example.com")
+guide = PhDguide("Dr. Thomas", "thomas@example.com")
+guide.add(student1)
+guide.add(student2)
+guide.putdata()
+guide.remove(student1)
+guide.putdata()
