@@ -2,3 +2,26 @@
 Write a program that overload the + operator so that it can add two object of class fraction
 Write a program that overload the * operator so that it can add two object of class fraction
   '''
+class Fraction:
+    def __init__(self,n,d):
+        self.n = n
+        self.d = d
+        
+    def __str__(self):
+        return (f"{self.n}/{self.d}")
+    
+    def __add__(self,other):
+        if (self.d == other.d):
+            return Fraction((self.n+other.n),self.d)
+        else:
+            return Fraction(((self.n*other.d)+(other.n*self.d)),(self.d*other.d))
+            
+    def __mul__(self,other):
+        return Fraction((self.n*other.n),(self.d*other.d))
+        
+f1 = Fraction(3,4)
+f2 = Fraction(4,2)
+print(f1)
+print(f2)
+print("After Addition",f1+f2)
+print("After Mulitplication",f1*f2)
