@@ -1,0 +1,5 @@
+'''
+Implement the following hierarchy . The Staff function has name and salary as its data members, the derived class Teaching 
+has subject as its data member and the class NonTeaching has department as its data member. The derived class method 
+overrides (extends) the methods of the base class.
+'''
