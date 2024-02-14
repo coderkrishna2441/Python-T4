@@ -1,0 +1,4 @@
+'''
+Write program that has a class point. Define another class location which has two objects (Location and Destination) of class 
+point. Also define function in Location that prints reflection of Destination on the x axis
+'''
