@@ -1,1 +1,7 @@
-
+'''
+688
+Implement the following hierarchy . The Book function has name, n (number of authors), authors (list of authors), publisher, 
+ISBN, and year as its data members and the derived class has course as its data member. The derived class method 
+overrides (extends) the methods of the base
+class.
+'''
