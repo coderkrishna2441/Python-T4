@@ -2,3 +2,24 @@
 Write program that has a class point. Define another class location which has two objects (Location and Destination) of class 
 point. Also define function in Location that prints reflection of Destination on the x axis
 '''
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+class Location:
+    def __init__(self, location, destination):
+        self.location = location
+        self.destination = destination
+
+    def print_reflection_on_x_axis(self):
+        reflected_x = self.destination.x
+        reflected_y = -1 * self.destination.y
+        print(f"Reflected Destination on x-axis: ({reflected_x}, {reflected_y})")
+
+
+        
+location_point = Point(50, 60)
+destination_point = Point(30, 40)
+loc = Location(location_point, destination_point)
+loc.print_reflection_on_x_axis()
