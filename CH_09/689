@@ -3,3 +3,29 @@ Implement the following hierarchy . The Staff function has name and salary as it
 has subject as its data member and the class NonTeaching has department as its data member. The derived class method 
 overrides (extends) the methods of the base class.
 '''
+class Staff:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+class Teaching(Staff):
+    def __init__(self, name, salary, subject):
+        super().__init__(name, salary)
+        self.subject = subject
+        
+    def __str__(self):
+        return (f"Staff name is {self.name} which is teaching subject {self.subject} having salary {self.salary}")
+
+class NonTeaching(Staff):
+    def __init__(self, name, salary, department):
+        super().__init__(name, salary)
+        self.department = department
+        
+    def __str__(self):
+        return (f"Staff name is {self.name} which is in department {self.department} having salary {self.salary}")
+
+
+teaching_staff = Teaching("John Doe", 50000, "Mathematics")
+non_teaching_staff = NonTeaching("Jane Smith", 40000, "Administration")
+print(teaching_staff)
+print(non_teaching_staff)
