@@ -1,0 +1,32 @@
+'''
+Implement the following hierarchy . The Book function has name, n (number of authors), authors (list of authors), publisher, 
+ISBN, and year as its data members and the derived class has course as its data member. The derived class method 
+overrides (extends) the methods of the base
+class.
+'''
+
+class Book:
+    def __init__(self, name, n, authors, publisher, ISBN, year):
+        self.name = name
+        self.n = n
+        self.authors = authors
+        self.publisher = publisher
+        self.ISBN = ISBN
+        self.year = year
+
+    def __str__(self):
+        return(f"Name: {self.name}\nNumber of Authors: {self.n}\nAuthors: {self.authors}\nPublisher: {self.publisher}\nISBN: {self.ISBN}\nYear: {self.year}")
+
+class Textbook(Book):
+    def __init__(self, name, n, authors, publisher, ISBN, year, course):
+        super().__init__(name, n, authors, publisher, ISBN, year)
+        self.course = course
+
+    def display_info(self):
+        super().display_info()
+        print(f"Course: {self.course}")
+
+
+book1 = Book("Generic Book", 2, ["Author1","Author2"], "Publisher1", "978-3-16-148410-0", 2023)
+textbook1 = Textbook("Science Textbook", 1, ["Scientist1"], "Publisher2", "978-1-137-49734-9", 2019, "Physics")
+print(textbook1)
