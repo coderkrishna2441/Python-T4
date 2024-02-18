@@ -3,3 +3,23 @@ Create a class student with following member attributes: roll no, name, age and 
 reading and printing member variables. Write a python program to overload ‘==’ operator to print the details of students 
 having same marks.
 '''
+class Student:
+    def __init__(self,roll_no,name,age,total_mark):
+        self.roll_no = roll_no
+        self.name = name
+        self.age = age
+        self.total_mark = total_mark
+        
+    def __eq__(self,other):
+        if (self.total_mark == other.total_mark):
+            print(f"Student 1:\nRoll No:{self.roll_no}\nName:{self.name}\nAge:{self.age}\nTotal Marks:{self.total_mark}")
+            print("-----------------------------------------------------------------------------------------------------")
+            print(f"Student 2:\nRoll No:{other.roll_no}\nName:{other.name}\nAge:{other.age}\nTotal Marks:{other.total_mark}")
+            
+            
+s1 = Student(1,"K",20,98)
+s2 = Student(2,"A",21,99)
+s3 = Student(3,"J",19,98)
+s1 == s2
+s2 == s3
+s3 == s1
