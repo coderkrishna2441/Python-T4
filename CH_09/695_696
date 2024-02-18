@@ -2,3 +2,21 @@
 Write a program to find the distance between two points in cartesian cordinate system
  Write a program to find the slope between two points in cartesian cordinate system
  '''
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+def slope_between_points(point1, point2):
+    if point1.x == point2.x:
+        return "undefined"
+    else:
+        return (point2.y - point1.y) / (point2.x - point1.x)
+        
+
+
+point1 = Point(1, 2)
+point2 = Point(2, 6)
+result = slope_between_points(point1, point2)
+print(f"Slope between ({point1.x}, {point1.y}) and ({point2.x}, {point2.y}): \n{result}")
