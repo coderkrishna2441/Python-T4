@@ -1,0 +1,14 @@
+'''
+The following illustration creates a class called data. If no argument is passed while instantiating the class a false is 
+returned, otherwise a true is returned.
+'''
+
+class Data:
+    def __init__(self, value=None):
+        self.value = value is not None
+
+
+data1 = Data()
+data2 = Data(42)
+print(data1.value)
+print(data2.value)
