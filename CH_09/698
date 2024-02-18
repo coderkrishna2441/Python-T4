@@ -1,0 +1,4 @@
+'''
+Write a program to create a class called Data having “value” as its data member. Overload the (>) and the (<) operator for 
+the class. Instantiate the class and compare the objects using _lt_ and _gt_.
+'''
