@@ -1,0 +1,202 @@
+'''
+ # Question 707
+    Imagine you own a call center. Use the following abstract class template to create three more classes, Respondent, 
+    Manager, and Director that inherit this Employee Abstract Class.
+    from abc import ABC, abstractmethod
+
+    class Employee(ABC):
+     @abstractmethod
+     def receive_call(self):
+     pass
+ 
+     @abstractmethod
+     def end_call(self):
+     pass
+     @abstractmethod
+     def is_free(self):
+     pass
+ 
+     @abstractmethod
+     def get_rank(self):
+     pass
+
+    Create a program using the instructions given below:
+    1.Create a constructor in all three classes (Respondent, Manager and Director) which takes the id and name as input and 
+    initializes two additional variables, rank and free. rank should be equal to 3 for Respondent, 2 for Manager and 1 for 
+    Director. free should be a boolean variable with value True initially. (1 mark)
+    2.Implement rest of the methods in all three classes in the following way: (2 marks)
+        a.receive_call(): prints the message, “call received by (name of the employee)” and sets the free variable to False.
+        b.end_call(): prints the message, “call ended” and sets the free variable to True.
+        c. is_free(): returns the value of the free variable
+        d. get_rank(): returns the value of the rank variable
+
+    3.Create a class Call, with a constructor that accepts id and name of the caller and iniƟalizes a variable called assigned to False. (0.5 marks)
+ 
+    4.Create a class CallHandler, with three lists, respondents, managers and directors as class variables. (0.5 marks)
+
+    5.Create an add_employee() method in CallHandler class that allows you to add an employee (an object of 
+    Respondent/Manager/Director) into one of the above lists according to their rank. (1 mark)
+
+    6.Create a dispatch_call() method in CallHandler class that takes a call object as a parameter. This method should find the first available employee starting from rank 3, then rank 2 and then rank 1. If a free employee is found, call its receive_call() function and change the call’s assigned variable value to True. If no free employee is found, print the message: “Sorry! All employees are currently busy.” (2 marks)
+
+    7.Create 3 Respondent objects, 2 Manager objects and 1 Director object and add them into the list of available employees using the CallHandler’s add_employee() method. (1 mark)
+
+    8.Create a Call object and demonstrate how it is assigned to an employee. (1 mark)
+ '''
+
+from abc import ABC, abstractmethod
+class Employee(ABC):
+    @abstractmethod
+    def receive_call(self):
+        pass
+
+    @abstractmethod
+    def end_call(self):
+        pass
+ 
+    @abstractmethod
+    def is_free(self):
+        pass
+
+    @abstractmethod
+    def get_rank(self):
+        pass
+    
+class Respondent(Employee):
+    def __init__(self,id,name):
+        self.id = id
+        self.name = name
+        self.rank = 3
+        self.free = True
+    
+    def receive_call(self):
+        print(f"call received by {self.name}")
+        self.free = False
+        
+    def end_call(self):
+        print(f"call ended")
+        self.free = True
+        
+    def is_free(self):
+        return self.free
+    
+    def get_rank(self):
+        return self.rank
+    
+    def __str__(self):
+        return f"respondant id {self.id} name is {self.name} rank {self.rank} and the respondant is free {self.free}"
+
+class Manager(Employee):
+    def __init__(self,id,name):
+        self.id = id
+        self.name = name
+        self.rank = 2
+        self.free = True
+        
+    def receive_call(self):
+        print(f"call received by {self.name}")
+        self.free = False
+        
+    def end_call(self):
+        print(f"call ended")
+        self.free = True
+        
+    def is_free(self):
+        return self.free
+    
+    def get_rank(self):
+        return self.rank
+    
+    def __str__(self):
+        return f"Manager id {self.id} name is {self.name} rank {self.rank} and the Manager is free {self.free}"
+
+class Director(Employee):
+    def __init__(self,id,name):
+        self.id = id
+        self.name = name
+        self.rank = 1
+        self.free = True
+        
+    def receive_call(self):
+        print(f"call received by {self.name}")
+        self.free = False
+        
+    def end_call(self):
+        print(f"call ended")
+        self.free = True
+        
+    def is_free(self):
+        return self.free
+    
+    def get_rank(self):
+        return self.rank
+    
+    def __str__(self):
+        return f"Director id {self.id} name is {self.name} rank {self.rank} and the Director is free {self.free}"
+    
+class Call:
+    def __init__(self,id,name):
+        self.id = id
+        self.name = name
+        self.assigned = False
+        
+class CallHandler:
+    respondents = []
+    managers = []
+    directors = []
+    
+    def add_employee(self,employee):
+        if employee.get_rank() == 1:
+            CallHandler.directors.append(employee)
+        elif employee.get_rank() == 2:
+            CallHandler.managers.append(employee)
+        else:
+            CallHandler.respondents.append(employee)
+            
+    def dispatch_call(self,c):
+        if not c.assigned:
+            for r in CallHandler.respondents:
+                if r.is_free():
+                    r.receive_call()
+                    r.free = False
+                    c.assigned = True
+                    break
+        if not c.assigned:
+            for m in CallHandler.managers:
+                if m.is_free():
+                    m.receive_call()
+                    m.free = False
+                    c.assigned = True
+                    break
+        if not c.assigned:
+            for d in CallHandler.directors:
+                if d.is_free():
+                    d.receive_call()
+                    d.free = False
+                    c.assigned = True
+                    break
+        if not c.assigned:
+            print(f"Sorry! All employees are currently busy.")
+            
+# object creation
+r1 = Respondent(1,"k")
+r2 = Respondent(2,"r")
+r3 = Respondent(3,"s")
+
+m1 = Manager(1,'f')
+m2 =  Manager(2,'p')
+
+d = Director(1,"h")
+
+h = CallHandler()
+h.add_employee(r1)
+h.add_employee(r2)
+h.add_employee(r3)
+h.add_employee(m1)
+h.add_employee(m2)
+h.add_employee(d)
+
+for i in range(7):
+    c = Call(i, str(i))
+    h.dispatch_call(c)
+ 
