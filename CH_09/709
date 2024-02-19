@@ -1,0 +1,59 @@
+'''
+Create an abstract class named Shape. 
+Create an abstract method named calculate_area for the Shape class.
+Create Two Classes named Rectangle and Circle which inherit Shape class.
+Create calculate_area method in Rectangle class. It should return the area of the rectangle object. (area of rectangle = 
+(length * breadth))
+Create calculate_area method in Circle class. It should return the area of the circle object.
+(area of circle =πr^2))
+Create objects of Rectangle and Circle class.
+The python Program Should also check whether the area of one Rectangle object is greater
+than another rectangle object by overloading > operator.
+Execute the method resolution order of the Circle class. 
+'''
+
+from abc import ABC, abstractmethod
+from math import pi
+
+class Shape(ABC):
+    @abstractmethod
+    def calculate_area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, length, breadth):
+        self.length = length
+        self.breadth = breadth
+
+    def calculate_area(self):
+        return self.length * self.breadth
+
+    def __gt__(self, other):
+        return self.calculate_area() > other.calculate_area()
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def calculate_area(self):
+        return pi * self.radius ** 2
+
+print("Creating objects:")
+rectangle1 = Rectangle(5, 10)
+rectangle2 = Rectangle(3, 8)
+circle1 = Circle(7)
+circle2 = Circle(5)
+
+print("Calculating areas:")
+print("Area of Rectangle 1:", rectangle1.calculate_area())
+print("Area of Rectangle 2:", rectangle2.calculate_area())
+print("Area of Circle 1:", circle1.calculate_area())
+print("Area of Circle 2:", circle2.calculate_area())
+
+print("Comparing areas of rectangles:")
+if rectangle1 > rectangle2:
+    print("Area of Rectangle 1 is greater than Rectangle 2")
+else:
+    print("Area of Rectangle 1 is not greater than Rectangle 2")
+
+print("Method Resolution Order of Circle class:", Circle.mro())
