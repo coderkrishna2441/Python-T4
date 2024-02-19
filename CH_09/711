@@ -10,3 +10,64 @@ addition operation to perform this)
 5. Multiplying the two matrices. If the matrices are not multiplied, “ Matrices cannot be multiplied” will be 
 displayed.(Overload the addition operation to perform this)
 '''
+
+class Matrix:
+    def __init__(self, rows, cols):
+        self.rows = rows
+        self.cols = cols
+
+    def get_cols(self):
+        return self.cols
+
+    def get_rows(self):
+        return self.rows
+
+    def set_mat(self):
+        self.mat = []
+        for i in range(self.rows):
+            self.mat.append([])
+            for j in range(self.cols):
+                self.mat[i].append(int(input("Enter the Value you want in the matrix:")))
+        return self.mat
+
+    def __add__(self, other):
+        if self.rows == other.rows and self.cols == other.cols:
+            mat1 = []
+            for i in range(len(self.mat)):
+                mat1.append([])
+                for j in range(len(self.mat[i])):
+                    mat1[i].append(self.mat[i][j] + other.mat[i][j])
+            return mat1
+        else:
+            print(f"Matrices cannot be added")
+
+    def __mul__(self, other):
+        if self.cols == other.rows:
+            result = []
+            for i in range(self.rows):
+                result.append([])
+                for j in range(other.cols):
+                    result[i].append(0)
+                    for k in range(self.cols):
+                        result[i][j] += self.mat[i][k] * other.mat[k][j]
+            return result
+        else:
+            print("Matrices cannot be multiplied")
+
+
+
+m1 = Matrix(2, 3)
+print("Matrix 1:")
+print(m1.set_mat())
+
+m2 = Matrix(2, 3)
+print("Matrix 2:")
+print(m2.set_mat())
+
+add_result = m1 + m2
+print("Matrix Addition:")
+print(add_result)
+
+mul_result = m1 * m2
+print("Matrix Multiplication:")
+print(mul_result)
