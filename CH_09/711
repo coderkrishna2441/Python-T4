@@ -1,0 +1,12 @@
+'''
+Create a class called Matrix containing constructor that initialized the number of rows and number of columns of a new 
+Matrix object.
+The Matrix class has methods for each of the following:
+1. get the number of rows
+2. get the number of columns
+3. set the elements of the matrix at given position (i,j)
+4. adding two matrices. If the matrices are not addable, “ Matrices cannot be added” will be displayed.(Overload the 
+addition operation to perform this)
+5. Multiplying the two matrices. If the matrices are not multiplied, “ Matrices cannot be multiplied” will be 
+displayed.(Overload the addition operation to perform this)
+'''
