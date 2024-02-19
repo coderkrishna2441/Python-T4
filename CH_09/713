@@ -1,0 +1,90 @@
+'''
+Write a Python Program to Find the Net Salary of Employee using Inheritance.
+Create three Class Employee, Perks, NetSalary. Make an Employee class as an abstract class.
+Employee class should have methods for following tasks.
+- To get employee details like employee id, name and salary from user. 
+- To print the Employee details. 
+- return Salary.
+- An abstract method emp_id.
+Perks class should have methods for following tasks.
+- To calculate DA, HRA, PF. 
+- To print the individual and total of Perks (DA+HRA-PF).
+Netsalary class should have methods for following tasks.
+- Calculate the total Salary after Perks.
+- Print employee detail also prints DA, HRA, PF and net salary.
+Note 1: DA-35%, HRA-17%, PF-12%
+Note 2: It is compulsory to create objects and demonstrating the methods with 
+ Correct output. Example:
+Employee ID: 1
+Employee Name: John
+Employee Basic Salary: 25000
+DA: 8750.0
+HRA: 4250.0
+PF: 3000.0
+Total Salary: 35000.0
+'''
+
+from abc import ABC, abstractmethod
+
+class Employee(ABC):
+    def __init__(self):
+        self.emp_id = 0
+        self.emp_name = ""
+        self.emp_salary = 0
+
+    def get_employee_details(self):
+        self.emp_id = int(input("Enter Employee ID: "))
+        self.emp_name = input("Enter Employee Name: ")
+        self.emp_salary = float(input("Enter Employee Basic Salary: "))
+
+    def print_employee_details(self):
+        print("Employee ID:", self.emp_id)
+        print("Employee Name:", self.emp_name)
+        print("Employee Basic Salary:", self.emp_salary)
+
+    @abstractmethod
+    def calculate_perks(self):
+        pass
+
+    def return_salary(self):
+        return self.emp_salary
+
+
+class Perks(Employee):
+    def __init__(self):
+        super().__init__()
+        self.da = 0
+        self.hra = 0
+        self.pf = 0
+
+    def calculate_perks(self):
+        self.da = 0.35 * self.emp_salary
+        self.hra = 0.17 * self.emp_salary
+        self.pf = 0.12 * self.emp_salary
+
+    def print_perks(self):
+        print("DA:", self.da)
+        print("HRA:", self.hra)
+        print("PF:", self.pf)
+        print("Total Perks:", self.da + self.hra - self.pf)
+
+
+class NetSalary(Perks):
+    def __init__(self):
+        super().__init__()
+
+    def calculate_total_salary(self):
+        self.calculate_perks()
+        total_salary = self.return_salary() + (self.da + self.hra - self.pf)
+        return total_salary
+
+    def print_employee_details(self):
+        super().print_employee_details()
+        self.print_perks()
+        net_salary = self.calculate_total_salary()
+        print("Total Salary:", net_salary)
+
+
+employee_obj = NetSalary()
+employee_obj.get_employee_details()
+employee_obj.print_employee_details()
