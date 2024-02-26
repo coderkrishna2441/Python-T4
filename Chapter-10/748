@@ -1,0 +1,41 @@
+'''
+There is an array of scores of 5 Batsmen in 4 T20 Matches. Which is given below.
+Scores= [[31, 12, 19, 53], 
+ [67, 48, 95, 83], 
+ [59, 67, 13, 59], 
+ [62, 29, 99, 88], 
+ [87, 91, 69, 76]]
+ 1. Find the maximum score in T_20-3 and print it (use only the numpy module)
+2. Find the minimum score of YUVRAJ and print it (use only the numpy module)
+3. Add an extra column with the sum of all 4 T20 Matches’ scores of each batsman in the array created and print it. (use only 
+the numpy module) 
+'''
+
+
+import numpy as np
+
+# Scores array
+Scores = np.array([
+    [31, 12, 19, 53],
+    [67, 48, 95, 83],
+    [59, 67, 13, 59],
+    [62, 29, 99, 88],
+    [87, 91, 69, 76]
+])
+
+# Task 1: Find the maximum score in T_20-3 and print it
+max_score_t20_3 = np.max(Scores[:, 2])
+print(f"Maximum score in T_20-3: {max_score_t20_3}")
+
+# Task 2: Find the minimum score of YUVRAJ and print it
+yuvraj_scores = Scores[1]  # Assuming YUVRAJ is in the second row
+min_score_yuvraj = np.min(yuvraj_scores)
+print(f"Minimum score of YUVRAJ: {min_score_yuvraj}")
+
+# Task 3: Add an extra column with the sum of all 4 T20 Matches’ scores of each batsman
+total_scores = np.sum(Scores, axis=1, keepdims=True)
+Scores_with_totals = np.concatenate((Scores, total_scores), axis=1)
+
+# Print the array with the extra column
+print("Array with total scores:")
+print(Scores_with_totals)
