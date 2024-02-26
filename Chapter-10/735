@@ -1,0 +1,20 @@
+'''
+Write a program to build two bar graphs using subplot function for given two dictionaries in which one graph is in 1st row 
+and another in second row which is horizontal representation of bar graph. 
+D1={“aryan”:66,”bob”:70,”jack”:66,”seema”:34}
+D2={“joy”:45,”sid”:85,”hina”:90}
+And also make a title of graph at top as “BAR PLOT”.
+'''
+
+import matplotlib.pyplot as plt
+D1={'aryan':66,'bob':70,'jack':66,'seema':34}
+x1 = list(D1.values())
+y1 = list(D1.keys())
+plt.bar(x1,y1,label='D1')
+D2={'joy':45,'sid':85,'hina':90}
+x2 = list(D2.values())
+y2 = list(D2.keys())
+plt.bar(x2,y2,label='D2')
+plt.title('BAR PLOT')
+plt.legend()
+plt.show()
