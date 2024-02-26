@@ -1,0 +1,18 @@
+'''
+Imagine you survey your friends to find the kind of movie they like best: 
+Comedy- 4
+Action -5
+Romance - 6
+Drama -1
+SciFi - 4. 
+Plot a pie chart for the above survey and use different color for each analysis and create a wedge for action movies. 
+Also put as chart title as "Survey analysis of movie"
+'''
+
+import matplotlib.pyplot as plt
+y = [4,5,6,1,4]
+plt.figure(figsize=(10,10))
+plt.pie(y,labels=['Comedy','Action','Romance','Drama','SciFi'],startangle=90,autopct='%1.f%%',explode=(0,0.2,0,0,0))
+plt.legend(title='Genre of Movie',loc=2)
+plt.title('Survey analysis of movie')
+plt.show()
