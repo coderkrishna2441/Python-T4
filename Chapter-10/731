@@ -1,0 +1,12 @@
+'''
+Create a Pie Chart using Python Program for the popularity data of different programming languages and displayed it as a 
+pie chart using the Matplotlib Python library. For Python- 29, Java – 19, Javascript – 8, C# - 7, PHP – 6, C,C++ - 5, R – 3. 
+Create an exploded view of python and show the % of each programming language in Pie Chart.
+'''
+
+import matplotlib.pyplot as plt
+y = [29,19,8,7,6,5,5,3]
+plt.figure(figsize=(10,10))
+plt.pie(y,labels=['Python','Java','Javascript','C#','PHP','C','C+','R'],startangle=90,autopct='%1.f%%',explode=(0.2,0,0,0,0,0,0,0))
+plt.legend(title='Programming Languages',loc=2)
+plt.show()
