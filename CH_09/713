@@ -75,15 +75,16 @@ class NetSalary(Perks):
 
     def calculate_total_salary(self):
         self.calculate_perks()
-        total_salary = self.return_salary() + (self.da + self.hra - self.pf)
+        total_salary = self.emp_salary + (self.da + self.hra - self.pf)
         return total_salary
 
     def print_employee_details(self):
-        super().print_employee_details()
+        print("Employee ID:", self.emp_id)
+        print("Employee Name:", self.emp_name)
+        print("Employee Basic Salary:", self.emp_salary)
         self.print_perks()
         net_salary = self.calculate_total_salary()
         print("Total Salary:", net_salary)
-
 
 employee_obj = NetSalary()
 employee_obj.get_employee_details()
