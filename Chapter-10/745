@@ -1,0 +1,61 @@
+'''
+There is an array of scores of 5 Batsmen in 4 T20 Matches. Which is given below.
+Scores= [[13, 10, 9, 33], 
+[63, 46, 90, 42], 
+[39, 76, 13, 29], 
+[82, 9, 29, 78], 
+[67, 61, 59, 36]]
+Further you are asked to perform below tasks. 
+(i). Add scores of every batsman of 5th Match given below in the same array and print the array.
+Match_6= [41, 87, 72, 36, 92]
+(ii). Add two new batsmen’s scores in respective 5 T20 Matches in the array created in task (i) above and print the array.
+Batsman_6= [77, 83, 98, 95, 89]
+Batsman_7= [92, 71, 52, 61, 53]
+(iii). Add extra column with sum of all 5 T20 Matches’ scores of each batsman in the array created in task (ii) and print the 
+final array.
+Note: Use Numpy module for all the Arrays given above
+Using the final array created in task(iii) above, generate graphs mentioned below:
+(a). Make a line chart of Total Scores of each batsman which is stored in last column of final array v/s No. of Batsman. Use 
+dashed line in graph, with black color. Give label on x-axis as “No. of Batsman” and label on y-axis as “Scores”. Give title to 
+the chart as “Leader Board” with bold fonts.
+(b). Make one Bar chart of scores of Batsman_1 and Batsman_2 for all 5 T20 matches. Give color for bars of Batsman_1 as 
+Purple and for Batsman_2 Dark red. Also show required legend in bar chart.
+(c). Make a pie chart of Total Scores of each batsman which is stored in last column of final array. Show the pie chart with 
+exploded view of all pieces with 0.1 amount. Also display percentage in the pie chart. Also show required legend for pie 
+chart.
+Note: Passing the values using numpy Array Slicing from array created in task(iii) for creating graphs above is compulsory.
+'''
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+Scores = np.array([[13, 10, 9, 33],
+                   [63, 46, 90, 42],
+                   [39, 76, 13, 29],
+                   [82, 9, 29, 78],
+                   [67, 61, 59, 36]])
+
+
+Match_6 = np.array([41, 87, 72, 36, 92])
+Scores_with_5th_match = np.concatenate((Scores, Match_6.reshape(-1, 1)), axis=1)
+print("Scores with 5th Match:")
+print(Scores_with_5th_match)
+print("Scores with 5th Match:")
+print(Scores_with_5th_match)
+Batsman_6= np.array([77, 83, 98, 95, 89])
+Batsman_7= np.array([92, 71, 52, 61, 53])
+Scores_with_6thBats=np.concatenate((Scores_with_5th_match,Batsman_6.reshape(1,-1)))
+Scores_with_7thBats=np.concatenate((Scores_with_6thBats,Batsman_7.reshape(1,-1)))
+print(Scores_with_7thBats)
+row_sums = np.sum(Scores_with_7thBats[: :], axis=1)
+Scores_with_sum = np.concatenate((Scores_with_7thBats, row_sums.reshape(-1, 1)),
+                                 axis=1)
+
+
+print("Array with Sum Column:")
+print(Scores_with_sum)
+plt.plot(Scores_with_sum[0:7,5],color='black',linestyle=':')
+plt.xlabel('No. of Batsman')
+plt.ylabel('Scores')
+plt.title('Leader Board')
+plt.show()
