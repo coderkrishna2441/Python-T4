@@ -1,0 +1,12 @@
+'''
+Here is how many students got each grade in the recent test: A- 4, B-12, C-10, D-2. 
+Plot a pie chart for the student grades in the recent chart with different colors for each student grades 
+and create a wedge for D. Also put a chart title as student's grade history.
+'''
+
+import matplotlib.pyplot as plt
+y = [4,12,10,2]
+plt.figure(figsize=(10,10))
+plt.pie(y,labels=['A','B','C','D'],startangle=90,autopct='%1.f%%',explode=(0,0,0,0.2))
+plt.legend(title='Student Grade',loc=2)
+plt.show()
