@@ -3,3 +3,9 @@ Uncle Bruno owns a garden with 30 black cherry trees. Each tree is of a differen
 61, 63, 64, 66, 68, 69, 71, 71.5, 72, 72.5, 73, 73.5, 74, 74.5, 76, 76.2, 76.5, 77, 77.5, 78, 78.5, 79, 79.2, 80, 81, 82, 83, 84, 85, 
 87. Plot a histogram with color green, title of the chart should be height of trees along with it’s fontsize as 20.
 '''
+
+import matplotlib.pyplot
+height=[61, 63, 64, 66, 68, 69, 71, 71.5, 72, 72.5, 73, 73.5, 74, 74.5, 76, 76.2, 76.5, 77, 77.5, 78, 78.5, 79, 79.2, 80, 81, 82, 83, 84, 85, 87]
+plt.hist(height,bins=20,color='green')
+plt.title('height of trees',fontsize=20)
+plt.show()
