@@ -36,3 +36,73 @@ Write a Python programming to display a Histogram chart for given data.
 Color of chart should be red.
 Data=[10,20,20,30,30,30,40,40,40,40,50,50,50,60,60,70]
 '''
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+plt.figure(figsize = (10,10))
+
+# Subplot 1
+x_values = [5, 10, 25, 60, 80]
+y_values = [5, 17, 25, 40, 30]
+
+plt.subplot(3, 2, 1)
+plt.plot(x_values, y_values, label='Line Plot', color='green', linestyle='dotted', marker='D')
+plt.xlabel('X Axis')
+plt.ylabel('Y Axis')
+plt.title('Line Plot')
+plt.legend()
+
+# Subplot 2
+Scores_men = (22, 30, 35, 35, 26)
+Scores_women = (25, 32, 30, 35, 29)
+groups = np.arange(len(Scores_men))
+
+plt.subplot(3, 2, 2)
+plt.bar(groups - 0.2, Scores_men, width=0.4, label='Men', color='green')
+plt.bar(groups + 0.2, Scores_women, width=0.4, label='Women', color='red')
+plt.xlabel('Groups')
+plt.ylabel('Scores')
+plt.title('Bar Plot')
+plt.legend()
+
+# Subplot 3
+car_labels = ['Maruti Suzuki', 'Hyundai', 'Kia', 'Toyota', 'Honda']
+popularity = [25, 50, 30, 20, 35]
+
+plt.subplot(3, 2, 3)
+plt.pie(popularity, labels=car_labels, autopct='%1.1f%%')
+plt.title('Popularity of Car Company')
+
+# Subplot 4
+math_marks = [88, 92, 80, 89, 100, 80, 60, 100, 80, 34]
+science_marks = [35, 79, 79, 48, 100, 88, 32, 45, 20, 30]
+
+plt.subplot(3, 2, 4)
+plt.scatter(range(1, 11), math_marks, marker='o', color='yellow', label='Mathematics')
+plt.scatter(range(1, 11), science_marks, marker='*', color='blue', label='Science')
+plt.xlabel('Students')
+plt.ylabel('Marks')
+plt.title('Scatter Plot')
+plt.legend()
+
+# Subplot 5
+languages = ['Java', 'Python', 'PHP', 'JavaScript', 'C', 'C++']
+popularity_languages = [20, 100, 25, 30, 45, 50]
+
+plt.subplot(3, 2, 5)
+plt.barh(languages, popularity_languages, color=['red', 'blue', 'green', 'orange', 'purple', 'brown'])
+plt.xlabel('Popularity')
+plt.ylabel('Programming Languages')
+plt.title('Horizontal Bar Chart')
+
+# Subplot 6
+data = [10, 20, 20, 30, 30, 30, 40, 40, 40, 40, 50, 50, 50, 60, 60, 70]
+plt.subplot(3, 2, 6)
+plt.hist(data, color='red', bins=10, edgecolor='black')
+plt.xlabel('Data')
+plt.ylabel('Frequency')
+plt.title('Histogram Chart')
+
+plt.tight_layout()
+plt.show()
