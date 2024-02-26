@@ -1,0 +1,61 @@
+'''
+Plot a subplot showing the marks of 5 students for 6 subjects (Digital Electronics, Probability and Stochastics, Python, Full 
+Stack Development, IELTS (Reading), and Data Structure). All the marks for each subject and for each student is to be taken 
+user defined. Subplot should be prepared for each subject. Each Subplot should have a title of subject along with a main 
+title of a plot. 
+'''
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+subjects = ["Digital Electronics", "Probability and Stochastics", "Python", "Full Stack Development", "IELTS (Reading)", "Data Structure"]
+
+marks = np.array([
+    [85, 78, 92, 80, 88],
+    [70, 85, 78, 90, 75],
+    [95, 88, 80, 85, 92],
+    [82, 90, 88, 75, 80],
+    [88, 82, 75, 95, 85]
+])
+
+plt.figure(figsize=(15, 15))
+
+plt.subplot(2, 3, 1)
+plt.scatter(range(1, 6), marks[:, 0], color='blue')
+plt.title(subjects[0])
+plt.xlabel('Student')
+plt.ylabel('Marks')
+
+plt.subplot(2, 3, 2)
+plt.scatter(range(1, 6), marks[:, 1], color='blue')
+plt.title(subjects[1])
+plt.xlabel('Student')
+plt.ylabel('Marks')
+
+plt.subplot(2, 3, 3)
+plt.scatter(range(1, 6), marks[:, 2], color='blue')
+plt.title(subjects[2])
+plt.xlabel('Student')
+plt.ylabel('Marks')
+
+plt.subplot(2, 3, 4)
+plt.scatter(range(1, 6), marks[:, 3], color='blue')
+plt.title(subjects[3])
+plt.xlabel('Student')
+plt.ylabel('Marks')
+
+plt.subplot(2, 3, 5)
+plt.scatter(range(1, 6), marks[:, 4], color='blue')
+plt.title(subjects[4])
+plt.xlabel('Student')
+plt.ylabel('Marks')
+
+plt.subplot(2, 3, 6)
+plt.scatter(range(1, 6), marks[:, 4], color='blue')
+plt.title(subjects[5])
+plt.xlabel('Student')
+plt.ylabel('Marks')
+
+
+plt.suptitle('Marks of 5 Students in 6 Subjects', fontsize=16)
+plt.show()
