@@ -1,0 +1,38 @@
+'''
+Write a program to build 6 graphs(3 row and 2 column) using subplot function for given data:
+Subplot 1:
+Draw a line from (5,5) to (10,17) to (25,25) to (60,40) to (80,30) with suitable label in the x axis, y axis and a title.
+Line color should be green.
+Line style should be dotted.
+Marker should be diamond.
+Subplot 2:
+Write a Python program to create bar plot of scores by group and gender. Give suitable label in the x axis, y axis and a title. 
+Colors of all label should be black and title should be bold. Color of bar plot of men and women scores should be green and 
+red.
+Data:
+Scores_men = (22, 30, 35, 35, 26)
+Scores_women = (25, 32, 30, 35, 29)
+Subplot 3:
+Write a Python programming to create a pie chart with a title of the popularity of Car company. Make multiple wedges of 
+the pie. Also show the percentage.
+data:
+Car : Maruti Suzuki, Hyundai, Kia, Toyota, Honda
+Popularity: 25,50,30,20,35
+Subplot 4:
+Write a Python program to draw a scatter plot comparing two subject marks of Mathematics and Science. Use marks of 10 
+students. Marker of mathematics and science should be circle and star. Colors of marker of mathematics and science should 
+be yellow and blue.
+Test Data:
+math_marks = [88, 92, 80, 89, 100, 80, 60, 100, 80, 34]
+science_marks = [35, 79, 79, 48, 100, 88, 32, 45, 20, 30]
+Subplot 5:
+Write a Python programming to display a horizontal bar chart of the popularity of programming Languages. Colors of all 
+programming Languages should be different. Give suitable label in the x axis, y axis and a title.
+data:
+Programming languages: Java, Python, PHP, JavaScript, C, C++
+Popularity: 20,100,25,30,45,50
+Subplot 6:
+Write a Python programming to display a Histogram chart for given data.
+Color of chart should be red.
+Data=[10,20,20,30,30,30,40,40,40,40,50,50,50,60,60,70]
+'''
