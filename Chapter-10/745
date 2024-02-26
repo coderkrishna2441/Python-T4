@@ -58,6 +58,7 @@ plt.plot(Scores_with_sum[0:7,5],color='black',linestyle=':')
 plt.xlabel('No. of Batsman')
 plt.ylabel('Scores')
 plt.title('Leader Board')
+plt.show()
 
 batsman_1 = Scores_with_sum[:, 0]
 batsman_2 = Scores_with_sum[:, 1]
@@ -67,6 +68,7 @@ plt.xlabel('Rows')
 plt.ylabel('Runs')
 plt.title('Runs scored by Batsman_1 and Batsman_2 in 1st and 2nd columns')
 plt.legend()
+plt.show()
 
 total_scores = Scores_with_sum[:, -1]
 batsman_names = ['Batsman_1', 'Batsman_2', 'Batsman_3', 'Batsman_4', 'Batsman_5', 'Batsman_6', 'Batsman_7']
