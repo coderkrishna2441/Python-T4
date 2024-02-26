@@ -1,0 +1,15 @@
+'''
+Prayatna sells designer bags and wallets. During the sales season, he gave discounts ranging from 10% to 50% over a period 
+of 5 weeks. He recorded his sales for each type of discount in an array. Draw a scatter plot to show a relationship between 
+the discount offered and sales made. Take 5 sales in Rupees as user defined values
+'''
+
+import matplotlib.pyplot as plt
+import numpy as np
+sales = np.array([50000, 75000, 60000, 80000, 70000])
+discounts = np.arange(10, 55, 10)
+plt.scatter(discounts, sales, color='blue')
+plt.title('Relationship between Discount and Sales')
+plt.xlabel('Discount (%)')
+plt.ylabel('Sales (Rupees)')
+plt.show()
