@@ -1,0 +1,16 @@
+'''
+These cost categories applied to a 
+$9.00 microcontroller:
+    Engineering $1.35
+Manufacturing $3.60
+    Sales $2.25
+Profit $1.80
+Create a pie chart will show the cost breakdown as different sized pieces. 
+'''
+
+import matplotlib.pyplot as plt
+y = [9.0,1.35,3.60,2.25,1.80]
+plt.figure(figsize=(10,10))
+plt.pie(y,labels=['microcontroller','Engineering','Manufacturing','Sales','Profit'],startangle=90,autopct='%1.f%%')
+plt.legend(title='Cost Categories',loc=2)
+plt.show()
